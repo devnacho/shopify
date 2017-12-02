@@ -43,14 +43,14 @@ defmodule Shopify.RecurringApplicationCharge  do
   ## Parameters
     - session: A `%Shopify.Session{}` struct.
     - id: The id of the resource.
-    
+
   ## Examples
       iex> Shopify.session |> Shopify.RecurringApplicationCharge.activate(id)
       {:ok, %Shopify.RecurringApplicationCharge{}}
   """
   def activate(session, id) do
     session
-      |> Request.new(activate_url(id), %{}, singular_resource())
+      |> Request.new(activate_url(id), %{}, singular_resource(), "")
       |> Client.post
   end
 
